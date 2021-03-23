@@ -3,6 +3,10 @@
   "version": "1.0.4",
   "description": "This is a logging middleware for Koa.js server",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jiwenyoung/koa-logging-middleware"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
