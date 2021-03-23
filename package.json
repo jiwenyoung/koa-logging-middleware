@@ -1,6 +1,6 @@
 {
   "name": "koa-logging-middleware",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "This is a logging middleware for Koa.js server",
   "main": "index.js",
   "repository": {
