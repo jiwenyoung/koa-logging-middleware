@@ -18,14 +18,21 @@ module.exports = (pathname) => {
          */
         const agent = new Agent(ctx.header['user-agent'])
 
+        
         const browser = agent.getBrowser()
-        log.browser = `${browser.name} ${browser.version}` || 'unknown'
+        const browser_name = browser.name || 'unknown'
+        const browser_version = browser.version || 'unknown'
+        log.browser = `${browser_name} ${browser_version}`
 
         const engine = agent.getEngine()
-        log.engine = `${engine.name} ${engine.version}` || 'unknown' 
+        const engine_name = engine.name || 'unknown'
+        const engine_version = engine.version || 'unknown'
+        log.engine = `${engine_name} ${engine_version}`  
 
         const os = agent.getOS()
-        log.os = `${os.name} ${os.version}` || 'unknown'
+        const os_name = os.name || 'unknown'
+        const os_version = os.version || 'unknown'
+        log.os = `${os_name} ${os_version}`
 
         log.architecture = agent.getCPU().architecture || 'unknown'
 
