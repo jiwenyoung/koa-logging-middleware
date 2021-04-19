@@ -9,9 +9,9 @@ module.exports = (pathname) => {
         /**
          * Get request log
          */
-        log.client = ctx.request.ip
-        log.url = ctx.request.href
-        log.method = ctx.request.method
+        log.client = ctx.request.ip || 'unknown'
+        log.url = ctx.request.href || 'unknown'
+        log.method = ctx.request.method || 'unknown'
 
         /**
          * Parse user agent
@@ -19,23 +19,23 @@ module.exports = (pathname) => {
         const agent = new Agent(ctx.header['user-agent'])
 
         const browser = agent.getBrowser()
-        log.browser = `${browser.name} ${browser.version}`
+        log.browser = `${browser.name} ${browser.version}` || 'unknown'
 
         const engine = agent.getEngine()
-        log.engine = `${engine.name} ${engine.version}`
+        log.engine = `${engine.name} ${engine.version}` || 'unknown' 
 
         const os = agent.getOS()
-        log.os = `${os.name} ${os.version}`
+        log.os = `${os.name} ${os.version}` || 'unknown'
 
-        log.architecture = agent.getCPU().architecture
+        log.architecture = agent.getCPU().architecture || 'unknown'
 
         await next()
 
         /**
          * Get reponse log
          */
-        log.type = ctx.response.type
-        log.status = ctx.response.status
+        log.type = ctx.response.type || 'unknown'
+        log.status = ctx.response.status || 'unknown'
 
         /**
          * Compose Date
